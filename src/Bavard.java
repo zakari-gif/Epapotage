@@ -9,19 +9,19 @@ public class Bavard implements PapotageListener {
 			this.sujet = sujet;
 		}
 
-		public void setName(String sujet) {
+		public void setsujet(String sujet) {
 			this.sujet = sujet;
 		}
 
 	
-		@Override
-		public String getName() {
+		
+		public String getsujet() {
 			return this.sujet;
 		}
 		
 		@Override
-		public void EnvoiMessage(String sujet, String corps) {
-			System.out.println(this.sujet + "A recu: " + sujet + " " + corps);
+		public void ecouteMessage(PapotageEvent even) {
+			System.out.println(this.sujet + "A recu: " + sujet + " " + event);
 		}
 	}
 
