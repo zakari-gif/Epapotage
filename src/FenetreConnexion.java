@@ -41,6 +41,8 @@ public class FenetreConnexion extends JFrame {
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setLocationRelativeTo(null); 
 	    this.cons=cons;
+	    this.setResizable(false);
+
 	    
 	    container.setBackground(Color.white);
 	    container.setLayout(new BorderLayout());

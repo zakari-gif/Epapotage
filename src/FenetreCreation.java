@@ -24,17 +24,15 @@ public class FenetreCreation extends JFrame implements ActionListener{
 	private String text;
 	private JTextField textField = new JTextField(20);
 	private JTextField textField2 = new JTextField(20);
-	private Concierge cons;//new Concierge();
-	//Compteur de clics
-	//private int compteur = 0;
+	private Concierge cons;
 	public FenetreCreation(Concierge cons){
 		this.setTitle("La fenetre de Creation de Bavard");
 		this.setSize(300, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null); 
 		this.cons=cons;
-		//On définit le layout à utiliser sur le content pane
-		//Trois lignes sur deux colonnes
+		this.setResizable(false);
+		
 		container.setBackground(Color.white);
 		container.setLayout(new BorderLayout());
 
@@ -73,17 +71,7 @@ public class FenetreCreation extends JFrame implements ActionListener{
 		
 		bouton.addActionListener(this);
 		bouton2.addActionListener(this);
-		/*bouton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
-			//A.generEvent("foot","ici c'est paris");
-			String login = this.textField.getText();
-			String motpasse = textField2.getText();
-			Bavard A=new Bavard(login,motpasse);
-	    	label.setText("Vous avez Ajouter un nouveau Bavard ");
-	    	this.cons.addBavard(A);
-	    	System.out.println("la liste est["+this.cons+"]");
-	    	}
-		  });*/
+		
 	}
 
 

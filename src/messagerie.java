@@ -41,6 +41,7 @@ public class messagerie extends JFrame implements PapotageListener,ActionListene
 		this.setSize(300, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null); 
+		this.setResizable(false);
 		
 		this.A=B;
 		this.cons=cons;
