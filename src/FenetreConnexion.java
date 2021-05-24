@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.AbstractButton;
@@ -22,8 +23,9 @@ import javax.swing.JTextField;
 
 public class FenetreConnexion extends JFrame {
 	  
-	 private JPanel pan = new JPanel();
+	  private JPanel pan = new JPanel();
 	  
+	  public static ArrayList<String> onlineUsers=new ArrayList<String>();
 	  
 	  private JButton bouton2 = new JButton("cliquez pour vous connecter");
 	  
@@ -82,6 +84,7 @@ public class FenetreConnexion extends JFrame {
 	    Concierge cons1=this.cons;
 	    bouton2.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		boolean x=false;
 	    		String login = textField.getText();
 				String motpasse =textField2.getText();
 				System.out.print(login);
@@ -91,13 +94,24 @@ public class FenetreConnexion extends JFrame {
 					label.setText("Connexion Reussi ");
 					messagerie m=new messagerie(cons1.getListeners().get(i),cons1);
 					cons1.getListeners().get(i).setMess(m);
+					//pour eviter plusieurs meme utilisateurs
 					
-				 		}
-				
+					for (int j=0;j<FenetreConnexion.onlineUsers.size();j++){
+						if (FenetreConnexion.onlineUsers.get(j)==cons1.getListeners().get(i).toString()){
+							x=true;
+						}
 					}
-	    		}
+					if (x==false) {
+						onlineUsers.add(cons1.getListeners().get(i).toString());
+						messagerie.area2.setText(String.valueOf(FenetreConnexion.onlineUsers));
+					}
+				 }
+				
+				}
+	    	}
 	    	
 	    });
+	    
 	  }
 }
 	    

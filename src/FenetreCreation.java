@@ -79,7 +79,7 @@ public class FenetreCreation extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String component=e.getActionCommand();
 		if (component=="cliquez pour creer un bavard") {
-			//A.generEvent("foot","ici c'est paris");
+			
 			String login = textField.getText();
 			String motpasse = textField2.getText();
 			Bavard A=new Bavard(login,motpasse);
