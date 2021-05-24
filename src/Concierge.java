@@ -1,55 +1,38 @@
-import java.util.ArrayList;
+import java.util.*;
+
 
 public class Concierge {
 
-	private String sujet;
 	
 	
-	private ArrayList<PapotageListener> listeners;
-	
-	
-	public Concierge (String sujet) {
-		this.setListeners(new ArrayList<PapotageListener>());
-		this.sujet = sujet;
-	}
-	
-	
-	public void addListener(PapotageListener listener) {
+	public List<Bavard> listeners=new ArrayList<Bavard>();
+	public void addBavard(Bavard listener) {
 		listeners.add(listener);
 	}
 	
-	public void removeListener(PapotageListener listener) {
+	public void removeBavard(Bavard listener) {
 		listeners.remove(listener);
 	}
 	
-	/*public void listenersConnected() {
-		for (PapotageListener l : listeners) {
-			System.out.println(getsujet() + " dit que le listener " + l.getsujet () + " est connecte");
-		}
-	}*/
 
-	public String getsujet() {
-		return sujet;
-	}
-
-	public void setsujet(String sujet) {
-		this.sujet =sujet;
-	}
-
-	public ArrayList<PapotageListener> getListeners() {
+	public List<Bavard> getListeners() {
 		return this.listeners;
 	}
 
-	public void setListeners(ArrayList<PapotageListener> listeners) {
-		this.listeners = listeners;
-	}
+	
 
 	
-	public void EnvoiMessageAtoutleslistener(String sujet, String corps) {
-		PapotageEvent event = null;
-		for (PapotageListener listener : listeners) {
+	public void EnvoiMessageAtoutleslistener(PapotageEvent event) {
+		for (Bavard listener : listeners) {
 			listener.ecouteMessage(event);
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Concierge "+ listeners;
+	}
+
+	
 }
